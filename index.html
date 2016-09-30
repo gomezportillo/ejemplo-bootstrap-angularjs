@@ -30,8 +30,12 @@
     padding-top: 1em;
     padding-left: 1.5em;
   }
-  input {
+  .form-control {
     width: 50%;
+  }
+  #resultado {
+    color: blue;
+    font-weight: bold;
   }
   </style>
 </head>
@@ -58,16 +62,30 @@
       <div id="anadir-empleados" class="tab-pane fade in active">
         <h3>Añadir empleados</h3>
         <div class="formulario" ng-app="">
+
           <label>Nombre</label>
-          <input type="text" ng-model="empleado.nombre">
           <br>
+          <input type="text" class="form-control" ng-model="empleado.nombre">
+          <br>
+
           <label>Estado civil</label>
-          <input type="text" ng-model="empleado.estado">
+          <select class="form-control" ng-model="empleado.estado">
+            <option value="" disabled>Seleccione una opción</option>
+            <option>Casado</option>
+            <option>Soltero</option>
+            <option>Divorciado</option>
+          </select>
           <br>
+
+          <input type="checkbox" ng-model="empleado.disponible">
           <label>Disponible</label>
-          <input type="checkbox" ng-model="empleado.disponible"<br>
           <br>
-          <p>{{empleado}}</p>
+
+          <button class="form-control" id="boton">Añadir
+
+          <div id="resultado">
+            <p>{{empleado}}</p>
+          </div>
         </div>
       </div>
 
