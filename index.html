@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Administrador de empleados</title>
+
+  <!-- BOOTSTRAP -->
+  <script src="https://code.jquery.com/jquery.js"></script>
+  <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css">
+  <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.js"></script>
+  <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
+
+  <!-- ANGULAR JS-->
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+
+  <!-- TABS -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+  <style>
+  h1 {
+    font-size: 30px;
+  }
+  body {
+    font-family: Arial;
+    font-size: 15px;
+    background-color:#FCFCFC;
+  }
+  .formulario {
+    padding-top: 1em;
+    padding-left: 1.5em;
+  }
+  input {
+    width: 50%;
+  }
+  </style>
+</head>
+
+<body>
+  <div class="container"> <!--style="height: 70%;"-->
+
+    <!--TITULO  http://getbootstrap.com/components/#page-header -->
+    <div class="page-header">
+      <h1>
+        <span class="glyphicon glyphicon-user"></span>
+        Administrador de empleados <small>Pedro Manuel Gómez-Portillo y José Antonio Martínez</small>
+      </h1>
+    </div>
+
+    <!-- DISEÑO DE LAS PESTAÑAS-->
+    <ul class="nav nav-tabs">
+      <li class="active"><a data-toggle="tab" href="#anadir-empleados">Añadir empleados</a></li>
+      <li><a data-toggle="tab" href="#ver-empleados">Ver empleados</a></li>
+    </ul>
+
+    <!-- CONTENIDO DE LAS PESTAÑAS-->
+    <div class="tab-content">
+      <div id="anadir-empleados" class="tab-pane fade in active">
+        <h3>Añadir empleados</h3>
+        <div class="formulario" ng-app="">
+          <label>Nombre</label>
+          <input type="text" ng-model="nombre">
+        
+        </div>
+      </div>
+
+      <div id="ver-empleados" class="tab-pane fade">
+        <h3>Ver empleados</h3>
+        <table class="table table-hover">
+          <tr>
+            <th>Nombre</th>
+            <th>Estado civil</th>
+            <th>Disponible</th>
+          </tr>
+          <tbody>
+            <tr>
+              <td>Mark</td> <td>Casado</td> <td>Si</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- FOOTER -->
+
+  </div>
+</body>
+</html>
