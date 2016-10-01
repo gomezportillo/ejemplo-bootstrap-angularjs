@@ -12,7 +12,7 @@
 
   <!-- ANGULAR JS-->
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
-
+  <script src="https://code.angularjs.org/1.4.5/angular-route.js"></script>
   <!-- TABS -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
@@ -34,8 +34,9 @@
     width: 50%;
   }
   #resultado {
-    color: blue;
+    padding: 0.5em;
     font-weight: bold;
+    background-color: #CEF0FF;
   }
   </style>
 </head>
@@ -61,8 +62,8 @@
     <div class="tab-content">
       <div id="anadir-empleados" class="tab-pane fade in active">
         <h3>Añadir empleados</h3>
-        <div class="formulario" ng-app="">
 
+        <div class="formulario" ng-app = "miApp" ng-controller = "miCtrl">
           <label>Nombre</label>
           <br>
           <input type="text" class="form-control" ng-model="empleado.nombre">
@@ -81,10 +82,12 @@
           <label>Disponible</label>
           <br>
 
-          <button class="form-control" id="boton">Añadir
+          <button type="button" class="btn btn-default" ng-click="addEmpleado()">
+            Añadir empleado
+          </button>
 
           <div id="resultado">
-            <p>{{empleado}}</p>
+            <p>{{empleado.nombreCompleto()}}</p>
           </div>
         </div>
       </div>
@@ -105,9 +108,21 @@
         </table>
       </div>
     </div>
-
-    <!-- FOOTER -->
-
   </div>
+
+  <script>
+  var mainApp = angular.module("miApp", []);
+  mainApp.controller('miCtrl', function($scope) {
+    $scope.empleado = {
+      nombreCompleto : function() {
+        var empl = $scope.empleado;
+        return "Resultado: " + empl.nombre +", "+ empl.estado +", "+ empl.disponible;
+      }
+    };
+    $scope.addEmpleado = function() {
+      console.log("Hola");
+    }
+  });
+  </script>
 </body>
 </html>
