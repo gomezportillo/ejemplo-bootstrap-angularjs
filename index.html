@@ -25,9 +25,6 @@
     padding-top: 1em;
     padding-left: 1.5em;
   }
-  .form-control {
-    width: 50%;
-  }
   #resultado {
     padding: 0.5em;
     font-weight: bold;
@@ -59,33 +56,38 @@
         <h3>Añadir empleados</h3>
 
         <div class="formulario" ng-app = "miApp" ng-controller = "miCtrl">
-          <label>Nombre</label>
-          <br>
-          <input type="text" class="form-control" ng-model="empleado.nombre">
-          <br>
+          <div class="col-md-6">
+            <label>Nombre</label>
+            <br>
+            <input type="text" class="form-control" ng-model="empleado.nombre">
+            <br>
 
-          <label>Estado civil</label>
-          <select class="form-control" ng-model="empleado.estado">
-            <option value="" disabled>Seleccione una opción</option>
-            <option>Casado</option>
-            <option>Soltero</option>
-            <option>Divorciado</option>
-          </select>
-          <br>
+            <label>Estado civil</label>
+            <select class="form-control" ng-model="empleado.estado">
+              <option value="" disabled>Seleccione una opción</option>
+              <option>Casado</option>
+              <option>Soltero</option>
+              <option>Divorciado</option>
+            </select>
+            <br>
 
-          <input type="checkbox" ng-model="empleado.disponible">
-          <label>Disponible</label>
-          <br>
+            <input type="checkbox" ng-model="empleado.disponible">
+            <label>Disponible</label>
+            <br>
 
-          <button type="button" class="btn btn-default" ng-click="addEmpleado()">
-            Añadir empleado
-          </button>
-
-          <div id="resultado">
-            <p>Resultado: {{empleado}}</p>
+            <button type="button" class="btn btn-default" ng-click="addEmpleado()">
+              Añadir empleado
+            </button>
+          </div>
+          
+          <div class="col-md-6">
+            <div id="resultado">
+              <p>Resultado: {{empleado}}</p>
+            </div>
           </div>
         </div>
       </div>
+
 
       <div id="ver-empleados" class="tab-pane fade">
         <h3>Ver empleados</h3>
