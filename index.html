@@ -10,7 +10,7 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 
   <!-- ANGULAR JS-->
-  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script>
 
   <style>
   h1 {
@@ -34,7 +34,7 @@
 </head>
 
 <body>
-  <div class="container"> <!--style="height: 70%;"-->
+  <div class="container">
 
     <!--TITULO  http://getbootstrap.com/components/#page-header -->
     <div class="page-header">
@@ -90,12 +90,12 @@
 
       <div id="ver-empleados" class="tab-pane fade">
         <h3>Ver empleados</h3>
-        <table class="table table-hover">
-          <tr>
+        <table class="table table-hover" id="tabla-empleados">
+          <thead>
             <th>Nombre</th>
             <th>Estado civil</th>
             <th>Disponible</th>
-          </tr>
+          </thead>
           <tbody>
             <!-- Aqui irán las filas que añadamos -->
           </tbody>
@@ -106,16 +106,18 @@
 
   <!-- SCRIPT DE ANGULARJS -->
   <script>
-  var mainApp = angular.module("miApp", []);
-  mainApp.controller('miCtrl', function($scope) {
+  var miApp = angular.module("miApp", []);
+  miApp.controller("miCtrl", function($scope) {
     $scope.addEmpleado = function() {
-      var nueva_fila= '<tr><td>' + $scope.empleado.nombre +
-      '</td><td>'+ $scope.empleado.estado +
-      '</td><td>'+ $scope.empleado.disponible +
-      '</td></tr>'
-      $('#tabla-empleados > tbody:last-child').append(nueva_fila);
-    }
+      var nueva_fila = '<tr><td>' + $scope.empleado.nombre + '</td>'+
+                      '<td>'+ $scope.empleado.estado + '</td>'+
+                      '<td>'+ $scope.empleado.disponible + '</td>' +
+                      '</tr>';
+
+      jQuery("#tabla-empleados > tbody:last-child").append(nueva_fila);
+    };
   });
+
   </script>
 </body>
 </html>
